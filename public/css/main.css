@@ -1,0 +1,15 @@
+.messages {
+  float: left;
+  width: 66%;
+}
+
+.users {
+  float: left;
+  width: 30%;
+}
+
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
