@@ -1,5 +1,7 @@
 var socket = io();
-var chat = new ChatApp.Chat({ socket: socket });
+var chat = new ChatApp.Chat({
+  socket: socket
+});
 
 var sendAll = function(message){
   var re = /^\\/;
@@ -18,7 +20,6 @@ var displayMessage = function(message) {
 
 var getMessage = function(form){
   var messageText = $(form).find("input").val();
-  console.log(messageText);
 
   displayMessage(messageText);
   sendAll(messageText);
@@ -44,12 +45,23 @@ $(function(){
   socket.on("nicknameChangeResult", function(data){
     console.log("nicknameChangeResult", data);
     chat.showNickname(data);
-    chat.showAllNicknames(data.nicknames);
+    chat.showRooms(data);
+    // chat.showAllNicknames(data.nicknames);
+  });
+  //
+  // socket.on("allNicknames", function(data) {
+  //   console.log("allNicknames", data);
+  //   chat.showAllNicknames(data);
+  // });
+
+  socket.on('roomList', function(data){
+    console.log("roomList", data);
+    chat.showRooms(data);
   });
 
-  socket.on("allNicknames", function(data) {
-    console.log("allNicknames", data);
-    chat.showAllNicknames(data);
+  socket.on('updateRoomList', function(data){
+    $('.messages-room').empty();
+    chat.showRooms(data);
   });
 
 });

@@ -1,15 +1,42 @@
-.messages {
+.main-left {
   float: left;
   width: 66%;
 }
 
-.users {
+
+.main-right {
   float: left;
   width: 30%;
+}
+
+.messages {
+  width: 90%;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: yellow;
+  opacity: 0.8;
+  display: block;
+}
+
+form {
+  display: block;
 }
 
 .group:after {
   content: "";
   clear: both;
   display: block;
+}
+
+
+li {
+  list-style: none;
+}
+
+.show-room {
+  display: block !important;
+}
+
+.hide-room {
+  display: hidden;
 }
