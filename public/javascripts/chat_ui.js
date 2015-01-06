@@ -61,6 +61,10 @@ $(function(){
 
   socket.on('updateRoomList', function(data){
     $('.messages-room').empty();
+    var oldRoom = $('.users').find('.'+data.oldRoom);
+    console.log(oldRoom);
+
+    $("."+data.oldRoom+" li:contains("+data.nickname+")").remove();
     chat.showRooms(data);
   });
 

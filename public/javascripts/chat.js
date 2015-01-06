@@ -105,7 +105,7 @@
   Chat.prototype.showRooms = function(data) {
     // only display users for my room
     var $sidebar = $('.users');
-    $sidebar.empty();
+    // $sidebar.empty();
 
     var existingRooms = $sidebar.find('.'+this.room);
 
